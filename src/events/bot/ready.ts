@@ -27,7 +27,6 @@ const readyEvent: Event = {
     once: true,
     execute: async (client: Client) => {
         try {
-            // Discord.js v14'te event handler'dan gelen client'ı ExtendedClient'a dönüştürüyoruz
             const extendedClient = client as ExtendedClient;
             await connectDatabase();
             setCustomStatus(extendedClient);
