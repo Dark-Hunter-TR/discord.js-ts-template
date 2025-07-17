@@ -39,7 +39,6 @@ const slashCommandHandler = async (client: ExtendedClient): Promise<{
     let failedCount = 0;
     let startTime = performance.now();
 
-    // Check if the slash command directory exists
     try {
       await fs.access(slashCommandsPath);
     } catch (error) {
@@ -70,7 +69,6 @@ const slashCommandHandler = async (client: ExtendedClient): Promise<{
             return;
           }
 
-          // Storing the category as metadata (not part of the data object)
           const commandWithMeta = { ...command, category };
 
           client.slashCommands.set(command.data.name, commandWithMeta);
