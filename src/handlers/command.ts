@@ -5,7 +5,6 @@ import { AsciiTable3 as AsciiTable } from 'ascii-table3';
 import { ExtendedClient, Command } from '../types';
 
 /**
- * Optimized command handler for loading prefix commands
  * @param {ExtendedClient} client - Discord client object
  * @returns {Promise<{loaded: number, failed: number, executionTime?: string, error?: Error}>}
  */
@@ -46,7 +45,6 @@ const commandHandler = async (client: ExtendedClient): Promise<{
           try {
             const stats = await fs.stat(filePath);
             
-            // Import the command module
             const commandModule = await import(filePath);
             const command: Command = commandModule.default || commandModule;
 
